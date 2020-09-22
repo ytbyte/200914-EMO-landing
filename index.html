@@ -324,11 +324,11 @@
 
       try {
         const formData = new FormData(form);
-        formData.append('source','yawning');
+        formData.append('source','yomo');
         // tried differently but didn't Works
         // const formData = {
         //   "email": `${form.name}`,
-        //   "source": "yawning"
+        //   "source": "yomo"
         // }
         const responseData = await postFormDataAsJson({ url, formData });
 
