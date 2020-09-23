@@ -30,17 +30,17 @@
   <!-- End Google Tag Manager -->
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178487021-2"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178487021-2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-178487021-2');
-  </script>
+  </script> -->
 
   <!-- Facebook Pixel Code -->
-  <script>
+  <!-- <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -54,7 +54,7 @@
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=3365871460143161&ev=PageView&noscript=1"
-  /></noscript>
+  /></noscript> -->
   <!-- End Facebook Pixel Code -->
 
 </head>
@@ -321,6 +321,10 @@
 
       const form = e.currentTarget;
       const url = form.action;
+      function resetForm() {
+        document.getElementById('form_head').reset();
+        document.getElementById('form_foot').reset();
+      }
 
       try {
         const formData = new FormData(form);
@@ -333,8 +337,13 @@
         const responseData = await postFormDataAsJson({ url, formData });
 
         console.log({ responseData });
+        alert('Thank you! You have been enrolled successfully.');
+        resetForm();
+
       } catch (error) {
         console.error(error);
+        alert('Sorry, something went wrong. Please refresh and submit again.');
+        resetForm();
       }
     }
 
